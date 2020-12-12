@@ -9,7 +9,7 @@ public class Step1 {
         while (true) {
             while (true) {
                 try {
-                    System.out.println("영어단어 -100<=N<100 L(l) or R(r) 입력하세요. (프로그램 종료 : EXIT)");
+                    System.out.println("영어단어 -100<=N<100 L(l) or R(r) 입력하세요. (프로그램 종료 : E)");
                     Scanner sc = new Scanner(System.in);
                     String getData = sc.nextLine();
                     //System.out.println(getData);
@@ -30,7 +30,7 @@ public class Step1 {
                     } else continue;
                 } catch (IndexOutOfBoundsException e) {
                     System.out.println(e);
-                    if(word.equals("EXIT")) System.exit(0);
+                    if(word.equals("E")) System.exit(0);
                     else continue;
                 }
             }
