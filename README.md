@@ -1,2 +1,3 @@
 # NewWorld
-git 및 GitHub 공부용
+
+##Step2 소스코드 설명
