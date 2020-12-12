@@ -30,7 +30,10 @@ class MyCube {
 
     void inputData( String dir ){
         Scanner sc = new Scanner(System.in);
-        dir = sc.next();
+        String temp = sc.next();
+//        if(temp.contains("'")){
+//
+//        }
        // System.out.println(dir);
     }
 }
