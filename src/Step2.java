@@ -1,7 +1,21 @@
 import java.util.*;
 public class Step2 {
+    static String[][] Cube = new String[3][];
+    static String dir = new String() ;
+
     public static void main(String args[]){
-        String[][] Cube = new String[3][];
+        MyCube obj;
+        obj = new MyCube();
+        obj.initCube(Cube);
+        obj.inputData(dir);
+//        while(true){
+//
+//        }
+    }
+}
+
+class MyCube {
+    void initCube( String[][] Cube ){
         Cube[0] = new String[]{"R", "R", "W"};
         Cube[1] = new String[]{"G", "C", "W"};
         Cube[2] = new String[]{"G", "B", "B"};
@@ -12,6 +26,11 @@ public class Step2 {
             }
             System.out.println();
         }
+    }
 
+    void inputData( String dir ){
+        Scanner sc = new Scanner(System.in);
+        dir = sc.next();
+       // System.out.println(dir);
     }
 }
