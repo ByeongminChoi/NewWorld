@@ -33,6 +33,7 @@ class MyCube {
     }
 
     void getDir(String[] dir) {
+        System.out.print("CUBE> ");
         Scanner sc = new Scanner(System.in);
         String temp = sc.next();
         dir = temp.split("");
@@ -50,7 +51,7 @@ class MyCube {
         dir = list.toArray(new String[list.size()]);
         Step2.dir = dir;
 
-        System.out.println(Arrays.deepToString(dir));
+        //System.out.println(Arrays.deepToString(dir));
 
         if (dir[0].equals("Q")) {
             System.out.println("Bye~");
@@ -58,21 +59,42 @@ class MyCube {
         }
     }
 
-    void MyCal(String[][] Cube,String[] dir) {
+    void MyCal(String[][] Cube, String[] dir) {
         MyCube obj = new MyCube();
+        String temp = new String("");
         //System.out.println(Arrays.deepToString(dir));
         //obj.printCube(Step2.Cube);
         for (int i = 0; i < dir.length; i++) {
             if (dir[i].equals("U")) {
-                for (int j = 0; j > Cube[0].length; j++) {
-                    String[] temp = new String[Cube[0].length];
-                    temp[j] = Step2.Cube[0][j + 1];
-                    if (j + 1 == 3) {
-                        temp[j] = Step2.Cube[0][0];
+                System.out.printf("%s%n", dir[i]);
+                for (int j = 0; j < 2; ++j) { // 12/13일 - for문이 작동을 안함
+                    temp = Step2.Cube[0][j + 1];
+                    Step2.Cube[0][j] = temp;
+                    System.out.println(j);
+                    if (j + 1 == 2) {
+                        temp = Step2.Cube[0][0];
+                        Step2.Cube[0][j + 1] = temp;
                     }
-                    obj.printCube(Step2.Cube);
                 }
+                obj.printCube(Step2.Cube);
             }
+
+            if (dir[i].equals("U'")) {
+                System.out.printf("%s%n", dir[i]);
+                for (int j = 0; j < 3; j++) {
+                    temp = Step2.Cube[0][2 - j];          // R R W -> W R R ( 0 1 2 -> 2 1 0 ) 2 0 1 로 만들어야
+                    if (j == 1) {
+                        temp = Step2.Cube[0][j];
+                        System.out.println(temp);
+                        Step2.Cube[0][j + 1] = temp;
+                    } else {
+                        Step2.Cube[0][j] = temp;
+                        System.out.println(j);
+                    }
+                }
+                obj.printCube(Step2.Cube);
+            }
+
         }
     }
 }
